@@ -1,53 +1,246 @@
-
 <!-- HTML is the bread of the sandwich -->
 
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- the head is the condiment -->
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Study Spots - Home</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
 
-<!-- the body is the protein -->
 
-    <body>
-        <h1>Study Spots in Toronto</h1>
-        <h2>Explore somewhere to work outside of campus!</h2>
-        <p></p>
-        <h3>
-            <div>
-                <a href="north.html">North</a>
-            </div>
-        </h3>
-        <h3>
-            <div>
-                <a href="south.html">South</a>
-            </div>
-        </h3>
-        <h3>
-            <div>
-                <a href="midtown.html">Midtown</a>
-            </div>
-        </h3>
-        <h3>
-            <div>
-                <a href="west.html">West</a>
-            </div>
-        </h3>
-        <h3>
-            <div>
-                <a href="east.html">East</a>
-            </div>
-        </h3>
-        <img src="images/leaflet_map.png">
-    </body>
+<!-- the head represents the condiments, space to set internal CSS rules (specific to the page) -->
 
-<!-- </HTML>: the bottom layer of bread  -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Study Spots - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+<!--- from Leafletjs.com: map preparation -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+<!--- end of Leafletjs map preparation -->
+
+
+<!-- CSS internal style changes-->
+    <style>
+
+        /* Leaflet map sizing - defined height required */
+        /* under width 800px: phones, tablets */
+        @media (max-width: 800px) {
+            #map {
+            width: 80vw;
+            height: 450px;
+            position: relative;
+            }
+        }
+        /* beyond width 800px: larger than tablet */
+        @media (min-width: 801px) {
+            #map {
+            width: 90vw;
+            height: 600px;
+            position: relative;
+            }
+        }
+
+        #map {z-index: 0;}
+
+    </style>
+</head>
+<!-- end of head -->
+
+
+
+<!-- the body is the protein, the VISIBLE part of the website -->
+<body>
+<header>
+
+    <h1>Study Spots in Toronto</h1>
+
+    <h2>Browse off-campus spots <br> for studying and working!</h2>
+
+    <div class="skyline"></div>
+
+</header>
+
+<nav class="nav-container">
+    <div> <h3> <a class=nav href="north.html" target="_blank">North</a> </h3> </div>
+    <div> <h3> <a class=nav href="south.html" target="_blank">South</a> </h3> </div>
+    <div> <h3> <a class=nav href="midtown.html" target="_blank">Midtown</a> </h3> </div>
+    <div> <h3> <a class=nav href="west.html" target="_blank">West</a> </h3> </div>
+    <div> <h3> <a class=nav href="east.html" target="_blank">East</a> </h3> </div>
+</nav>
+
+
+<!-- leaflet map "container"-->
+<main class="main-map">
+    <div class="map">
+        
+        <!-- leaflet map insert-->
+        <div class="custom-popup" id="map"></div>
+
+
+        <script>
+            var map = L.map('map').setView([43.706, -79.398], 11);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                minZoom: 11,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+
+            // to make custom icons for markers: https://leafletjs.com/examples/custom-icons/ 
+            var redPin = L.icon({
+                iconUrl: 'images/pin-red-2.png',
+                shadowUrl: 'images/pin-shadow.png',
+
+
+                iconSize:     [50, 50], // size of the icon
+                shadowSize:   [30, 25], // size of the shadow
+                iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
+                shadowAnchor: [1, 0],  // the same for the shadow
+                popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+            });
+
+
+            // North
+
+            var marker = L.marker([43.76822179899632, -79.41458034737905], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (North York)</h4> <br> 5120 Yonge St');
+
+            var marker = L.marker([43.78985537286094, -79.41830957131178], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Coffee Lunar</h4> <br> 6040 Yonge St');
+                
+            var marker = L.marker([43.76259635188486, -79.41148639878548], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Cafe Kray</h4> <br> 4850 Yonge St <br> (2nd floor)');
+
+            var marker = L.marker([43.770451740442328, -79.41285745462767], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>A Corner Cafe</h4> <br> 5193 Yonge St');
+
+            var marker = L.marker([43.764987584703826, -79.41033674152368], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Cafe Inside</h4> <br> 23 Spring Garden Ave');
+
+            var marker = L.marker([43.77365724607622, -79.41425684582495], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Dont Yell at Me</h4> <br> 5336 Yonge St');
+
+
+            // South
+            
+            var marker = L.marker([43.671753362608264, -79.38691573461902], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Reference Library (Yonge-Bloor)</h4> <br> 789 Yonge St');
+
+            var marker = L.marker([43.65793173886425, -79.39828241532958], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Lillian H. Smith) </h4> <br> 239 College St');
+                
+            var marker = L.marker([43.639198633613326, -79.40040493637956], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Fort York)</h4> <br> 190 Fort York Blvd');
+
+            var marker = L.marker([43.66963465688834, -79.38002606688404], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Rooster Coffee House</h4> <br> 568 Jarvis St');
+
+            var marker = L.marker([43.65598536470991, -79.39280197754677], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Rooms</h4> <br> 17 Baldwin St');
+
+            var marker = L.marker([43.64771053024532, -79.38996341500714], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Columbus Café and Co Adélaide</h4> <br> 283 Adelaide St W');
+
+
+            // Midtown
+            var marker = L.marker([43.708225488800124, -79.39977404595061], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Northern District)</h4> <br> 40 Orchard View Blvd');
+
+            var marker = L.marker([43.70457427065584, -79.40986985336801], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Isle of Coffee (Eglinton)</h4> <br> 380 Eglinton Ave W');
+                
+            var marker = L.marker([43.70770856957068, -79.39462713178149], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>The Social Blend</h4> <br> 130 Eglinton Ave E');
+
+            var marker = L.marker([43.71040688065614, -79.39397285436954], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>10 Dean</h4> <br> 200 Redpath Ave <br> (Parker Apt. lobby)');
+
+            var marker = L.marker([43.70800209240104, -79.39311917156732], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>The Coffee Bar @ The Harp</h4> <br> 174 Eglinton Ave E');
+
+            var marker = L.marker([43.70456905737548, -79.37444492733259], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>LIT Espresso Bar</h4> <br> 1517 Bayview Ave');
+
+            
+            // West
+            var marker = L.marker([43.64125162946469, -79.4326472551583], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Parkdale)</h4> <br> 1303 Queen St W');
+
+            var marker = L.marker([43.65472045712497, -79.4591638994262], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Cosette Coffee</h4> <br> 1715 Bloor St W');
+                
+            var marker = L.marker([43.67426835400002, -79.410900030386], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Typist Studios & Coffee</h4> <br> 390 Dupont St');
+
+            var marker = L.marker([43.6657359583749, -79.4648276036218], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Rois Cream</h4> <br> 382 Keele St');
+
+            var marker = L.marker([43.63901764618433, -79.44526835833216], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Osprey Cafe</h4> <br> 1714 Queen St W');
+
+            var marker = L.marker([43.65411799689729, -79.45203495648659], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>AM Coffee Studio</h4> <br> 2233 Dundas St W');
+
+                
+            // East
+            var marker = L.marker([43.73665689761277, -79.347283040739], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Don Mills)</h4> <br> 888 Lawrence Ave E');
+
+            var marker = L.marker([43.77915898488929, -79.34666818592287], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/library-icon.png"> <br> <h4>Toronto Public Library (Fairview)</h4> <br> 35 Fairview Mall Dr');
+                
+            var marker = L.marker([43.66066094151835, -79.34137710003934], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Mercury Espresso</h4> <br> 915 Queen St E');
+
+            var marker = L.marker([43.773204852726906, -79.34502614883748], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Forest Cafe</h4> <br> 56 Forest Manor Rd Unit 5');
+
+            var marker = L.marker([43.65997233285074, -79.36277408079263], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Cafe Zuzu</h4> <br> 555 Dundas St E');
+
+            var marker = L.marker([43.66152320994228, -79.35729875832472], {icon: redPin}).addTo(map)
+                .bindPopup('<img src="images/coffee-icon.png"> <br> <h4>Bevy</h4> <br> 738 Dundas St E');
+
+
+
+        </script>
+    </div>
+
+
+<!--    Leaflet Marker Template: 
+
+var marker = L.marker([   ], {icon: redPin}).addTo(map)
+    .bindPopup('<img src="images/   -icon.png"> <br> <h4>_Name_</h4> <br>_Address_');
+-->
+
+
+</main>
+
+<footer>
+
+    <p>by Leah Hwang 2025</p>
+    <br>
+    <p><span style="font-family: Lato Bold;">Typefaces:</span></p>
+    <p>Unkempt by Sideshow</p>
+    <p>Syne by Bonjour Monde, Lucas Descroix, and George Triantafyllakos</p>
+    <p>Lato by Lukasz Dziedzic</p>
+
+</footer>
+
+
+
+</body>
+<!-- end of the body (the visible part)-->
+
+
+<!-- </HTML>: the bottom layer of bread -->
 
 </html>
