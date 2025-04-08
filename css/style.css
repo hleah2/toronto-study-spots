@@ -20,6 +20,17 @@ header {
     width: 100%;
 }
 
+/* a.nav:link, a.nav:visited {
+    color: #1d528c;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;*/
+
+a.index:link, a.index:visited {
+    color:#6e0000;
+    text-decoration: none;
+}
+
 .header-area h2 {
     text-transform: uppercase;
     padding-right: 7%;
@@ -28,9 +39,18 @@ header {
 
 .header-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
+
+/*
+@media (max-width: 800px) {
+    .header-container {
+      flex-direction: column;
+    }
+}
+*/
 
 .character-left img {
     height: 150px;
