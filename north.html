@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Study Spots - Home - North</title>
     <link rel="stylesheet" href="css/style.css">
@@ -16,17 +16,22 @@
 <body>
 
 
+<header class="areas-page-header gridlines">
 
-    
-<header class="header-area">
+    <div class="breadcrumb">
+        <p> <a class="breadcrumb-home" href="index.html">Home</a> / North </p>
+    </div>
 
-    <h1> Study Spots in Toronto </h1>
-
-    <div class="header-container">
+    <div class="areas-page-header-h1">
+        <h1> <a class="link-home" href=index.html> Study Spots in Toronto </a> </h1>
+    </div> 
+    <div class="areas-page-label-container">
         <div class="character-left">
             <img src="images/character-blue4.png" alt="character walking, looking to the right">
         </div>
-        <h2>North</h2>
+        <div class="areas-page-label"> 
+            <h2>North</h2> 
+        </div>
         <div class="character-right">
             <img src="images/character-blue2.png" alt="character sitting and working on laptop">
         </div>
@@ -35,11 +40,11 @@
 </header>
 
 <nav class="nav-container">
-    <div> <h3> <a class=nav href="north.html">North</a> </h3> </div>
-    <div> <h3> <a class=nav href="south.html">South</a> </h3> </div>
-    <div> <h3> <a class=nav href="midtown.html">Midtown</a> </h3> </div>
-    <div> <h3> <a class=nav href="west.html">West</a> </h3> </div>
-    <div> <h3> <a class=nav href="east.html">East</a> </h3> </div>
+    <div class="nav-current"> <h3> <a class=nav href="north.html">North</a> </h3> </div>
+    <div> <h3> <a class="nav" href="south.html">South</a> </h3> </div>
+    <div> <h3> <a class="nav" href="midtown.html">Midtown</a> </h3> </div>
+    <div> <h3> <a class="nav" href="west.html">West</a> </h3> </div>
+    <div> <h3> <a class="nav" href="east.html">East</a> </h3> </div>
 </nav>
 
 
@@ -51,96 +56,242 @@
 
         <section>
             <img src="images/library-icon.png" alt="illustrated book icon">
-            <h4>Toronto Public Library (North York Centre)</h4>
-            <h4>5120 Yonge Street</h4>
+            <h4> <a class="location-link" href="https://www.torontopubliclibrary.ca/northyorkcentral/" target="_blank"> Toronto Public Library (North York Centre) </a> </h4>
             <br>
-            <p>Monday: <span style="font-family: Lato Bold">9AM–8:30PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">9AM–8:30PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">9AM–8:30PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">9AM–8:30PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">9AM–8:30PM</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">9AM–5PM</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">1:30PM–5PM</span> </p>
+            <p>5120 Yonge Street</p>
             <br>
-            <p>Charging Outlets: <span style="text-transform: uppercase;">available</span> </p>
-        </section>
 
-        <section>
-            <img src="images/library-icon.png" alt="illustrated book icon">
-            <h4>Coffee Lunar</h4>
-            <h4>6040 Yonge Street</h4>
-            <br>
-            <p>Monday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">9AM–7PM</span> </p>
+            <!-- for html tables: https://www.w3schools.com/html/html_tables.asp-->
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">9AM–8:30PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">9AM–8:30PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">9AM–8:30PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">9AM–8:30PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">9AM–8:30PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">9AM–5PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">1:30PM–5PM</td>
+                </tr>
+            </table>
             <br>
             <p>Charging Outlets: <span style="text-transform: uppercase;">available</span> </p>
         </section>
 
         <section>
             <img src="images/coffee-icon.png" alt="illustrated coffee icon">
-            <h4>Cafe Kray</h4>
-            <h4>4850 Yonge Street (2nd floor)</h4>
+            <h4> <a class="location-link" href="https://coffeelunar.com/" target="_blank"> Coffee Lunar </a> </h4>
             <br>
-            <p>Monday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
+            <p>6040 Yonge Street</p>
+            <br>
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">9AM–7PM</td>
+                </tr>
+            </table>
+            <br>
+            <p>Charging Outlets: <span style="text-transform: uppercase;">available</span> </p>
+        </section>
+
+        <section>
+            <img src="images/coffee-icon.png" alt="illustrated coffee icon">
+            <h4> <a class="location-link" href="http://cafekray.com/" target="_blank"> Cafe Kray </a> </h4>
+            <br>
+            <p>4850 Yonge Street (2nd floor)</p>
+            <br>
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+            </table>
             <br>
             <p>Charging Outlets: <span style="text-transform: uppercase;">limited quantity</span> </p>
             </section>
 
         <section>
             <img src="images/coffee-icon.png" alt="illustrated coffee icon">
-            <h4>A Corner Cafe</h4>
-            <h4>5193 Yonge Street</h4>
+            <h4> <a class="location-link" href="https://www.acornercafe.ca/" target="_blank"> A Corner Cafe </a> </h4>
             <br>
-            <p>Monday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">9AM–1AM</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">9AM–1AM</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">9AM–11PM</span> </p>
+            <p>5193 Yonge Street</p>
+            <br>
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">9AM–1AM</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">9AM–1AM</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">9AM–11PM</td>
+                </tr>
+            </table>
             <br>
             <p>Charging Outlets: <span style="text-transform: uppercase;">available</span> </p>
         </section>
 
         <section>
             <img src="images/coffee-icon.png" alt="illustrated coffee icon">
-            <h4>Cafe Inside</h4>
-            <h4>23 Spring Garden Avenue</h4>
+            <h4> <a class="location-link" href="https://cafeinsidetoronto.com/" target="_blank"> Cafe Inside </a> </h4>
             <br>
-            <p>Monday: <span style="font-family: Lato Bold">9AM–9PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">9AM–9PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">9AM–9PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">9AM–9PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">9AM–9PM</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
+            <p>23 Spring Garden Avenue</p>
+            <br>
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">9AM–9PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">9AM–9PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">9AM–9PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">9AM–9PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">9AM–9PM</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+            </table>
             <br>
             <p>Charging Outlets: <span style="text-transform: uppercase;">limited quantity</span> </p>
         </section>
 
         <section>
             <img src="images/coffee-icon.png" alt="illustrated coffee icon">
-            <h4>Dont Yell At Me</h4>
-            <h4>5336 Yonge Street</h4>
+            <h4> <a class="location-link" href="https://www.dontyellatme.ca/" target="_blank"> Dont Yell At Me </a> </h4>
             <br>
-            <p>Monday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
-            <p>Tuesday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
-            <p>Wednesday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
-            <p>Thursday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
-            <p>Friday: <span style="font-family: Lato Bold">Noon-Midnight</span> </p>
-            <p>Saturday: <span style="font-family: Lato Bold">Noon-Midnight</span> </p>
-            <p>Sunday: <span style="font-family: Lato Bold">Noon–10PM</span> </p>
+            <p>5336 Yonge Street</p>
+            <br>
+            <table>
+                <tr>
+                    <td>Monday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+                <tr>
+                    <td>Tuesday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+                <tr>
+                    <td>Wednesday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+                <tr >
+                    <td>Thursday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+                <tr>
+                    <td>Friday:</td>
+                    <td class="p-bold">Noon–Midnight</td>
+                </tr>
+                <tr>
+                    <td>Saturday:</td>
+                    <td class="p-bold">Noon–Midnight</td>
+                </tr>
+                <tr>
+                    <td>Sunday:</td>
+                    <td class="p-bold">Noon–10PM</td>
+                </tr>
+            </table>
             <br>
             <p>Charging Outlets: <span style="text-transform: uppercase;">available</span> </p>
         </section>
@@ -152,11 +303,43 @@
 </main>
 
 
+
 <footer>
 
-    <p>by Leah Hwang</p>
+    <div>
+        <table>
+            <tr>
+                <td style="text-transform: uppercase">Contact</td>
+                <td> <a class="p-link" href="mailto:hleah@ocadu.ca"> hleah@ocadu.ca </a> </td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td style="text-transform: uppercase">Typefaces</td>
+                <td>Unkempt by Sideshow;</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Syne by Bonjour Monde, Lucas Descroix, and George Triantafyllakos;</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Lato by Lukasz Dziedzic.</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td style="text-transform: uppercase">Open Source Map</td>
+                <td> <a class="p-link" href="Leafletjs.com"> leaflet.js </a> </td>
+            </tr>
+        </table>    
+    </div>
     <br>
-    <p></p>
+    <br>
+    <p style="text-align: center; text-transform: uppercase">© 2025 Study Spots in Toronto</p>
+    <p style="text-align: center; text-transform: uppercase;">Website and Illustrations made by Leah Hwang</p>
 
 </footer>
 

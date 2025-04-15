@@ -13,44 +13,112 @@ selector {property: value;}
     margin: 0;
 }
 
-header {
-    background-image: url(../images/path-dashed-pattern2-opacity50.png);
-    background-size: 100%;
-    background-position: center;
-    width: 100%;
+/* to add grid lines in the background: https://phuoc.ng/collection/css-layout/grid-lines-background/ */
+.gridlines {
+    z-index: -5;
+    background-image:
+        linear-gradient(to right, #bdd7f4 0.5px, transparent 0.5px),
+        linear-gradient(to bottom, #bdd7f4 0.5px, transparent 0.5px);
+    background-size: 2.5rem 2.5rem;
+    background-position: center center;
 }
 
-/* a.nav:link, a.nav:visited {
+
+.breadcrumb {
+    position: relative;
+    padding: 3%;
+}
+
+a.breadcrumb-home:any-link {
+    text-decoration: none;
     color: #1d528c;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;*/
-
-a.index:link, a.index:visited {
-    color:#6e0000;
-    text-decoration: none;
+    background-color: #bdd7f4;
 }
 
-.header-area h2 {
-    text-transform: uppercase;
-    padding-right: 7%;
-    padding-left: 10%
+a.breadcrumb-home:hover {
+    background-color: #ffd86c;
+    transition: 1s;
 }
 
-.header-container {
+
+
+@media (max-width: 800px) {
+    .home-header-title {
+        padding: 12%;
+    }
+}
+
+@media (min-width: 801px) {
+    .home-header-title {
+        padding: 6% 15% 2% 15%;
+    }
+}
+
+.home-header-colour {
+    border-radius: 2rem;
+    background-color: #fff3d3;
+    padding: 20px;
+    border: 4px solid #1d528c;
+    box-shadow: 0px 0px 5px #1d528c;
+}
+
+.home-header-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: 4px dashed #1d528c;
+    padding: 20px;
+}
+
+.home-header-desc {
+    padding: 0 5%;
+}
+
+.home-header-desc h2 {
+    padding: 4%;
+}
+
+
+
+
+
+
+a.link-home:any-link {
+    color: #1d528c;
+    text-decoration: none;
+    text-shadow: 0 0 1rem #e15050;
+}
+
+a.link-home:hover {
+    text-shadow: 0 0 2rem #ffd86c;
+    transition: 1s;
+}
+
+
+
+
+.areas-page-header-h1 h1 {
+    font-size: 4rem;
+    padding: 5% 10% 5% 10%;
+}
+
+
+
+
+.areas-page-label-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 2% 0;
+    height: 150px;
 }
 
-/*
-@media (max-width: 800px) {
-    .header-container {
-      flex-direction: column;
-    }
+.areas-page-label {
+    text-transform: uppercase;
+    padding: 0 8% 0 10%;
 }
-*/
 
 .character-left img {
     height: 150px;
@@ -62,69 +130,57 @@ a.index:link, a.index:visited {
 
 
 
-@media (max-width: 800px) {
-    header h1 {
-        padding-bottom: 7%;
-    
-    }
-    header h2 {
-        padding-bottom: 10%;
-    }
-}
-
-@media (min-width: 801px) {
-    header h1 {
-        padding: 10%;
-    
-    }
-    header h2 {
-        padding-left: 15%;
-        padding-right: 15%;
-        padding-bottom: 10%;
-    }
-}
 
 
-
-
-
-/* to make an adjustable/responsive skyline img: https://www.w3schools.com/css/css_rwd_images.asp*/
+/* Header: to make an adjustable/responsive skyline img: https://www.w3schools.com/css/css_rwd_images.asp*/
 .skyline {
     width: 100vw;
     background-image: url(../images/skyline-blue.png);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /* if the image is unavailable */
 }
-/* defining skyline height for tablets and smaller */
+
+/* Header: defining skyline height for tablets/mobile */
 @media (max-width:800px) {
-    .skyline {height: 6rem;} } 
+    .skyline {height: 6rem;} 
+} 
     
-/* defining skyline height for larger than tablets */
+/* Header: defining skyline height for larger than tablets */
 @media (min-width:801px) {
-    .skyline {height: 12rem;} }
+    .skyline {height: 12rem;} 
+}
 
 
 
-    /* https://www.w3schools.com/css/css3_flexbox.asp */
+/* Navigation bar: sticky positioning to keep the bar accessible when scrolling down
+    • https://www.w3schools.com/css/css3_flexbox.asp 
+    • https://www.w3schools.com/css/css3_flexbox_container.asp */
 .nav-container {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 5;
     display: flex;
-    /* https://www.w3schools.com/css/css3_flexbox_container.asp */
     justify-content: center;
     align-items: center;
-    /* border-top: 1px solid #ffd86c; */
-    /* border-bottom: 1px solid #ffd86c; */
-    background-color: #ffebb3;
+    background-color: #f9cbcb;
 }
 
-    
-.nav-container > .nav {
+.nav {
     position: relative;
 }
 
-/*  https://www.w3schools.com/css/css_pseudo_classes.asp*/
+
+.nav-current {
+    background-image: url(../images/current-nav-circle-lightblue.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent; /* if the image is unavailable */
+}
+
+/*  */
 @media (max-width: 800px) {
     a.nav:link {
         padding-top: 1rem; 
@@ -139,26 +195,128 @@ a.index:link, a.index:visited {
         padding: 1.5rem; } 
     }
 
-/*  using links: https://www.w3schools.com/css/css_link.asp */
-a.nav:link, a.nav:visited {
+/* Navigation bar: https://www.w3schools.com/css/css_link.asp */
+a.nav:any-link {
     color: #1d528c;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
-/*  for transition duration: https://www.w3schools.com/css/css3_transitions.asp 
-    for text-shadow: https://www.w3schools.com/css/css_text_shadow.asp */
-a.nav:hover, a.nav:active {
+/* Navigation bar - navigation link hover and active effects
+    • for transition duration -> https://www.w3schools.com/css/css3_transitions.asp 
+    • for text-shadow -> https://www.w3schools.com/css/css_text_shadow.asp */
+a.nav:hover {
     transition-duration: 0.5s;
     color: #fff; 
-    text-shadow: 0 0 3px #1d528c;   
+    text-shadow: 0 0 3px #6e0000;   
+}
+
+a.nav:active {
+    color: #6e0000;
+    text-shadow: 0 0 3px #6e0000;   
 }
 
 
 
 
 
-/* https://geary.co/internal-borders-css-grid/ */
+
+
+
+/* Homepage: Padding surrounding the map in <Main> */
+.home-main {
+    padding: 10% 15%;
+}
+
+/* Homepage: Background image decoration */
+.home-bkg-left, .home-bkg-right {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+/* Homepage: No background display for tablets/mobiles behind the map */
+@media (max-width: 800px) {
+    .home-bkg-left, .home-bkg-right {display: none;}
+}
+
+/* Homepage: Background adjustments (behind the map) for larger screens */
+@media (min-width: 801px) {
+    .home-bkg-left, .home-bkg-right {height: 80%;}
+    .home-bkg-left {left: 10px;}
+    .home-bkg-right {right: 10px;}
+}
+
+
+/* Homepage: Map "border" (behind the map) for larger screens */
+.map-colour {
+    background-color: #f9cbcb;
+    border-radius: 2rem;
+    padding: 3%;
+}
+
+/* Homepage: Map container to centre the actual map + add padding and dashed border */
+.map {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Homepage: Colour animation behind the map
+    • visible ONLY for TABLETS/MOBILES
+    • to make animations: https://www.w3schools.com/css/css3_animations.asp */
+@media (max-width: 800px) {
+    .map-colour {
+        animation-name: map-shadow;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes map-shadow {
+    0%      {box-shadow: 0 0 2rem #bdd7f4;}
+    33.3%    {box-shadow: 0 0 2rem #f9cbcb;}
+    66.6%    {box-shadow: 0 0 2rem #fff3d3;}
+    100%    {box-shadow: 0 0 2rem #bdd7f4;}
+}
+
+
+/* Homepage: to adjust filter of map tiles: https://stackoverflow.com/questions/53528313/apply-css3-filters-to-the-image-tiles-on-leaflet */
+.leaflet-layer {
+    filter: contrast(1.3);
+}
+
+/* Homepage: Leaflet popup customizations: https://www.youtube.com/watch?v=INNVFfrbalU
+    + https://stackoverflow.com/questions/12606141/how-would-i-customise-the-look-and-feel-of-the-leaflet-popup */
+.custom-popup .leaflet-popup-content-wrapper {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #1d528c;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 6px;
+    text-align: center;
+    font-family: "Lato Regular";
+}
+
+.custom-popup .leaflet-popup-content img {
+    display: block;
+    margin: auto;
+    width: 30px;
+}
+
+.custom-popup .leaflet-popup-close-button {
+    display: none;
+}
+
+
+
+
+
+
+
+/* to make responsive "internal grid lines" in a grid format: https://geary.co/internal-borders-css-grid/ */
 
 /* defining grid columns: for tablets, phones */
 @media (max-width: 800px) {
@@ -177,8 +335,8 @@ a.nav:hover, a.nav:active {
 .locations-grid {
 
     --gap: 3rem;
-    --line-thickness: 1px;
-    --line-color: #ffd86c;
+    --line-thickness: 2px;
+    --line-color: #f9cbcb;
     --line-offset: calc(var(--gap) / 2);
 
     display: grid;
@@ -186,124 +344,92 @@ a.nav:hover, a.nav:active {
     justify-content: center;
     align-items: stretch;
     overflow: hidden;
-    border-right: #ffd86c;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+    border-right: var(--line-color);
+    margin: 2% 2% 4% 2%;
+    padding: 1rem 0 3rem 0;
 }
 
 .locations-grid > section {
-    background-color: #fff;
     position: relative;
     padding: 0.5em;
 }
+
+/* Pseudo Elements */
+
+.locations-grid > section::after,
+.locations-grid > section::before {
+    content: "";
+    background-color: var(--line-color);
+    position: absolute;
+} 
+
+/* Row lines */
+.locations-grid > section::after {
+    inline-size: 100vw;
+    block-size: var(--line-thickness);
+    inset-block-start: calc(var(--line-offset) * -1);
+    inset-inline-start: 0;
+}
+
+/* Column lines */
+.locations-grid > section::before {
+    inline-size: var(--line-thickness);
+    block-size: 100vh;
+    inset-block-start: 0;
+    inset-inline-start: calc(var(--line-offset) * -1);
+}  
+
+
+
+
 
 .locations-grid > section img {
     display: block;
     margin: auto;
     width: 50px;
-    padding: 1px;
+    padding-bottom: 18px;
+}
+
+a.location-link:any-link {
+    color: #1d528c;
+    text-decoration: none;
+    background-color: #ccdcee;
+}
+
+a.location-link:hover, a.location-link:active {
+    background-color: #ffd86c;
+    transition: 1s;
 }
 
 .locations-grid > section h4 {
     color: black;
 }
 
-    /* https://geary.co/internal-borders-css-grid/ */
-    /* Pseudo Elements */
 
-    .locations-grid > section::after,
-    .locations-grid > section::before {
-        content: "";
-        background-color: var(--line-color);
-        position: absolute;
-    } 
-
-    /* Row lines */
-    .locations-grid > section::after {
-        inline-size: 100vw;
-        block-size: var(--line-thickness);
-        inset-block-start: calc(var(--line-offset) * -1);
-        inset-inline-start: 0;
-    }
-
-    /* Column lines */
-    .locations-grid > section::before {
-        inline-size: var(--line-thickness);
-        block-size: 100vh;
-        inset-block-start: 0;
-        inset-inline-start: calc(var(--line-offset) * -1);
-    }  
-
-
-/* Map padding in the Main section*/
-.main-map {
-    padding: 5%
-}
-
-/* Map container */
-.map {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    background-color: white;
-    border: 2px dashed #ffd86c;
-}
-
-
-/* to adjust filter of map tiles: https://stackoverflow.com/questions/53528313/apply-css3-filters-to-the-image-tiles-on-leaflet */
-.leaflet-layer {
-    filter: contrast(1.3);
-  }
-
-/* popup customizations: https://www.youtube.com/watch?v=INNVFfrbalU
-    + https://stackoverflow.com/questions/12606141/how-would-i-customise-the-look-and-feel-of-the-leaflet-popup */
-.custom-popup .leaflet-popup-content-wrapper {
-    border-radius: 10px;
-    box-shadow: 0 4px 10px #1d528c;
-}
-
-.custom-popup .leaflet-popup-content {
-    margin: 6px;
-    text-align: center;
+/* to make tables: https://www.w3schools.com/html/html_tables.asp */
+table {
     font-family: "Lato Regular";
+    color:black;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    border-collapse: collapse;
+    text-align: left;
 }
 
-.custom-popup .leaflet-popup-content h4 {
-    font-family: "Lato Bold";
-    color: #6e0000;
+td {
+    padding: 0 10px 0 0;
 }
 
-.custom-popup .leaflet-popup-content img {
-    display: block;
-    margin: auto;
-    width: 30px;
-}
-
-.custom-popup .leaflet-popup-close-button {
-    display: none;
-}
 
 
 
 footer {
-    text-align: center;
-    height: 10rem;
-    background-color: #6e0000;
-    padding-top: 10%;
-    padding-bottom: 0%;
+    font-family: "Lato Regular";
+    font-size: 0.8rem;
+    text-align: left;
+    background-color: #fff3d3;
+    padding: 3%;
 }
-
-footer > p {
-    color: #e49999;
-}
-
-
-
-
 
 
 
@@ -355,32 +481,21 @@ footer > p {
     font-style: normal;
 }
 
-/* Font template
-@font-face {
-    font-family: ' ';
-    src: url(' ') format('woff'),
-         url(' ') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-*/
 
 
 /* defining text 800px or less (phones, tablets) */
 @media (max-width: 800px) {
     h1 {
-        font-size: 3rem;
+        font-size: 2.8rem;
         line-height: 1;
-        padding: 15%;
     }
 
     h2 {
         font-size: 1.2rem;
         line-height: 1.5rem; 
-        padding-bottom: 20%;
     }
 
-    h3, h4 {
+    h3, h4, h5 {
         font-size: 0.9rem;
     }
 
@@ -389,25 +504,21 @@ footer > p {
 /* defining text more than 800px (larger than tablet) */
 @media (min-width: 801px) {
     h1 {
-        font-size: 6rem; 
-        line-height: 6rem;
-        padding-top: 10%;
-        padding-bottom: 7%;
-        padding-left: 10%;
-        padding-right: 10%;
+        font-size: 5rem; 
+        line-height: 6.25rem;
+        
     }
 
     h2 {
         font-size: 2rem;
         line-height: 2rem;
-        padding-bottom: 7%;
     }
 
     h3 {
         font-size: 1rem;
     }
 
-    h4 {
+    h4, h5 {
         font-size: 0.9rem;
     }
 
@@ -417,24 +528,44 @@ footer > p {
 h1 {
     font-family: "Unkempt Bold";
     text-align: center;
-    color: #6e0000;
+    color: #000;
 }
 
 h2 {
     font-family: "Syne Bold";
     text-align: center;
-    color: #1d528c;
+    color: #000;
 }
 
 h3, h4 {
     font-family: "Syne Bold";
     text-align: center;
-    color: #1d528c;
+    color: #000;
+}
+
+h5 {
+    font-family: "Lato Bold";
+    text-align: center;
+    color: #000;
 }
     
 p {
     font-family: "Lato Regular";
-    color:black;
+    color: #000;
     font-size: 0.9rem;
+    line-height: 1.2rem;
+}
+
+.p-bold {
+    font-family: "Lato Bold";
+}
+
+a.p-link {
+    text-decoration: none;
+    color: #1d528c;
+}
+
+a.p-link:hover {
+    background-color: #bdd7f4;
 }
 
