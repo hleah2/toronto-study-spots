@@ -1,59 +1,56 @@
-/* ----- start comment
+/* --------------------
+ORGANIZATION NOTE: 
 
-use * {} for site-wide rules
-to override the default root of the document
+BREAKPOINTS and INTERACTIONS are integrated throughout because scattering into different sections disrupts the flow of how 
+some styles/elements are connected. I also thought it would be easier to read when specific breakpoints/interactions are 
+grouped with the "main" functionality.
 
-selector {property: value;}
+This CSS file is mostly organized by functionalities, by order of appearance. Starting from the TOP of the page to the BOTTOM. 
+First with the Home page, then to the "Area" pages.
 
------ */
+For this website, "Area" only describes the different areas/regions of Toronto (i.e., North, South, Midtown, West, and East).
+-------------------- */
 
-/* LAYOUT */
 * {
     scroll-behavior: smooth;
     margin: 0;
 }
 
-/* to add grid lines in the background: https://phuoc.ng/collection/css-layout/grid-lines-background/ */
+
+
+
+
+
+/* ----- LAYOUT ----- */
+
+/* Background Gridlines: to add grid lines in the background -> https://phuoc.ng/collection/css-layout/grid-lines-background/ */
 .gridlines {
     z-index: -5;
     background-image:
-        linear-gradient(to right, #bdd7f4 0.5px, transparent 0.5px),
-        linear-gradient(to bottom, #bdd7f4 0.5px, transparent 0.5px);
+        linear-gradient(to right, #ccdcee 0.5px, transparent 0.5px),
+        linear-gradient(to bottom, #ccdcee 0.5px, transparent 0.5px);
     background-size: 2.5rem 2.5rem;
     background-position: center center;
 }
 
 
-.breadcrumb {
-    position: relative;
-    padding: 3%;
-}
-
-a.breadcrumb-home:any-link {
-    text-decoration: none;
-    color: #1d528c;
-    background-color: #bdd7f4;
-}
-
-a.breadcrumb-home:hover {
-    background-color: #ffd86c;
-    transition: 1s;
-}
 
 
-
+/* Homepage - Header Breakpoint (800px width or UNDER): Layout adjustments of "Outer Box" of Heading 1 (website name/title) for tablets/mobile */
 @media (max-width: 800px) {
     .home-header-title {
         padding: 12%;
     }
 }
 
+/* Homepage - Header Breakpoint (OVER 800px width): Layout adjustments of "Outer Box" of Heading 1 (website name/title) for devices larger than tablets */
 @media (min-width: 801px) {
     .home-header-title {
         padding: 6% 15% 2% 15%;
     }
 }
 
+/* Homepage - Header: "Outer Box" of Heading 1 (website name/title) */
 .home-header-colour {
     border-radius: 2rem;
     background-color: #fff3d3;
@@ -62,6 +59,7 @@ a.breadcrumb-home:hover {
     box-shadow: 0px 0px 5px #1d528c;
 }
 
+/* Homepage - Header: "Inner Box" of Heading 1 (website name/title) */
 .home-header-border {
     display: flex;
     justify-content: center;
@@ -71,10 +69,12 @@ a.breadcrumb-home:hover {
     padding: 20px;
 }
 
+/* Homepage - Header: Parent container for Heading 2 and Heading 3 (website description/introduction) */
 .home-header-desc {
     padding: 0 5%;
 }
 
+/* Homepage - Header: Adjustments for Heading 2 (website description/introduction) */
 .home-header-desc h2 {
     padding: 4%;
 }
@@ -82,8 +82,14 @@ a.breadcrumb-home:hover {
 
 
 
+/* "AREA Template" page - Header: Layout adjustments of Heading 1 (website name/title) */
+.areas-page-header-h1 h1 {
+    font-size: 4rem;
+    padding: 5% 10% 5% 10%;
+}
 
-
+/* "AREA Template" page - Header: Link for Heading 1 (website description/introduction) 
+    • https://www.w3schools.com/css/css_link.asp */
 a.link-home:any-link {
     color: #1d528c;
     text-decoration: none;
@@ -98,14 +104,8 @@ a.link-home:hover {
 
 
 
-.areas-page-header-h1 h1 {
-    font-size: 4rem;
-    padding: 5% 10% 5% 10%;
-}
-
-
-
-
+/* "AREA Template" page - Header: Parent container for "AREA" label (Heading 2) + characters illustrations next to the "AREA" label 
+    • https://www.w3schools.com/css/css3_flexbox.asp */
 .areas-page-label-container {
     display: flex;
     flex-direction: row;
@@ -115,15 +115,19 @@ a.link-home:hover {
     height: 150px;
 }
 
+/* "AREA Template" page - Header: Container for "AREA" label (Heading 2) */
 .areas-page-label {
     text-transform: uppercase;
-    padding: 0 8% 0 10%;
+    padding: 0 6% 0 10%;
+    text-align: center;
 }
 
+/* "AREA Template" page - Header: Left container for "AREA" character illustration next to the "AREA" label */
 .character-left img {
     height: 150px;
 }
 
+/* "AREA Template" page - Header: Right container for "AREA" character illustration next to the "AREA" label */
 .character-right img {
     height: 150px;
 }
@@ -132,7 +136,8 @@ a.link-home:hover {
 
 
 
-/* Header: to make an adjustable/responsive skyline img: https://www.w3schools.com/css/css_rwd_images.asp*/
+/* Homepage - Header: Skyline image 
+    • to make an adjustable/responsive skyline img: https://www.w3schools.com/css/css_rwd_images.asp */
 .skyline {
     width: 100vw;
     background-image: url(../images/skyline-blue.png);
@@ -142,19 +147,198 @@ a.link-home:hover {
     background-color: transparent; /* if the image is unavailable */
 }
 
-/* Header: defining skyline height for tablets/mobile */
+/* Homepage - Header Skyline Breakpoint (800px width or UNDER): defining skyline illustration height for tablets/mobile */
 @media (max-width:800px) {
     .skyline {height: 6rem;} 
 } 
     
-/* Header: defining skyline height for larger than tablets */
+/* Homepage - Header Skyline Breakpoint (UNDER 800px width): defining skyline height for larger than tablets */
 @media (min-width:801px) {
     .skyline {height: 12rem;} 
 }
 
 
 
-/* Navigation bar: sticky positioning to keep the bar accessible when scrolling down
+
+
+
+
+/* Homepage: Padding surrounding the Map */
+.home-main {
+    padding: 10% 15%;
+}
+
+/* Homepage: Illustrated stickers in the background, decoration images bounded to the left and right */
+.home-bkg-left, .home-bkg-right {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.9;
+}
+
+/* Homepage - Image (Illustrated Stickers) Breakpoints (800px width or UNDER): No background image decoration for tablets/mobiles (behind the Map) */
+@media (max-width: 800px) {
+    .home-bkg-left, .home-bkg-right {display: none;}
+}
+
+/* Homepage - Image (Illustrated Stickers) Breakpoints (OVER 800px width): Background adjustments (behind the Map) for screens larger than tablets */
+@media (min-width: 801px) {
+    .home-bkg-left, .home-bkg-right {height: 80%;}
+    .home-bkg-left {left: 10px;}
+    .home-bkg-right {right: 10px;}
+}
+
+
+/* Homepage: "Outer border/box" behind the Map for screens larger than tablets */
+.map-colour {
+    background-color: #f9cbcb;
+    border-radius: 2rem;
+    padding: 3%;
+}
+
+/* Homepage: Map "container" to centre the actual Map */
+.map {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Homepage: Leaflet Map filter
+    • to adjust filter of map tiles -> https://stackoverflow.com/questions/53528313/apply-css3-filters-to-the-image-tiles-on-leaflet */
+.leaflet-layer {
+    filter: contrast(1.3);
+}
+
+
+
+
+/* "AREA Template" page: Internal Grid Lines (without "outer border lines")
+    • to make responsive "internal grid lines" in a grid format -> https://geary.co/internal-borders-css-grid/ */
+.locations-grid {
+    --gap: 3rem;
+    --line-thickness: 2px;
+    --line-color: #f9cbcb;
+    --line-offset: calc(var(--gap) / 2);
+
+    display: grid;
+    gap: var(--gap);
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+    border-right: var(--line-color);
+    margin: 2% 2% 4% 2%;
+    padding: 1rem 0 3rem 0;
+}
+
+.locations-grid section {
+    position: relative;
+    padding: 0.5em;
+}
+
+/* "AREA Template" page - Grid Breakpoint (800px width or UNDER): defining grid columns for tablets/phones */
+@media (max-width: 800px) {
+    .locations-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* "AREA Template" page - Grid Breakpoint (800px width or UNDER): defining grid columns for screesn larger than tablets */
+@media (min-width: 801px) {
+    .locations-grid {
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+}
+
+    /* Pseudo Elements -> https://geary.co/internal-borders-css-grid/ */
+    .locations-grid section::after,
+    .locations-grid section::before {
+        content: "";
+        background-color: var(--line-color);
+        position: absolute;
+    } 
+
+    /* Row lines -> https://geary.co/internal-borders-css-grid/ */
+    .locations-grid section::after {
+        inline-size: 100vw;
+        block-size: var(--line-thickness);
+        inset-block-start: calc(var(--line-offset) * -1);
+        inset-inline-start: 0;
+    }
+
+    /* Column lines -> https://geary.co/internal-borders-css-grid/ */
+    .locations-grid section::before {
+        inline-size: var(--line-thickness);
+        block-size: 100vh;
+        inset-block-start: 0;
+        inset-inline-start: calc(var(--line-offset) * -1);
+    }  
+
+
+
+
+/* "AREA Template" page: Adjustments for the (book/coffee) icons "describing" each location */
+.locations-grid section img {
+    display: block;
+    margin: auto;
+    width: 50px;
+    padding-bottom: 18px;
+}
+
+
+
+
+/* Tables: to list weekly open hours of different locations or help make references in the footer
+    • to make tables -> https://www.w3schools.com/html/html_tables.asp */
+table {
+    font-family: "Lato Regular";
+    color:black;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+td {padding: 0 10px 0 0;}
+
+
+
+
+/* Footer */
+footer {
+    font-family: "Lato Regular";
+    font-size: 0.8rem;
+    text-align: left;
+    background-color: #fff3d3;
+    padding: 3%;
+}
+
+
+
+
+
+
+/* ----- INTERACTIONS ----- */
+
+/* BREAKCRUMBS */
+.breadcrumb {
+    position: relative;
+    padding: 3%;
+}
+
+.breadcrumb-home:any-link {
+    text-decoration: none;
+    color: #1d528c;
+    background-color: #ccdcee;
+}
+
+.breadcrumb-home:hover {
+    background-color: #ffd86c;
+    transition: 1s;
+}
+
+
+
+
+/* NAVIGATION BAR: Parent container
     • https://www.w3schools.com/css/css3_flexbox.asp 
     • https://www.w3schools.com/css/css3_flexbox_container.asp */
 .nav-container {
@@ -167,11 +351,10 @@ a.link-home:hover {
     background-color: #f9cbcb;
 }
 
-.nav {
-    position: relative;
-}
+/* NAVIGATION BAR: Individual "boxes" for each "Area" */
+.nav {position: relative;}
 
-
+/* NAVIGATION BAR: To highlight the "currently selected" page */
 .nav-current {
     background-image: url(../images/current-nav-circle-lightblue.png);
     background-size: 100%;
@@ -180,29 +363,26 @@ a.link-home:hover {
     background-color: transparent; /* if the image is unavailable */
 }
 
-/*  */
+/* NAVIGATION BAR - Breakpoint (800px width or UNDER): Layout adjustments for each individual link on tablets/mobiles */
 @media (max-width: 800px) {
-    a.nav:link {
-        padding-top: 1rem; 
-        padding-bottom: 1rem;
-        padding-left: 0.4rem; 
-        padding-right: 0.4rem;
-    } 
+    a.nav:link {padding: 1rem 0.4rem;} 
 }
 
+/* NAVIGATION BAR - Breakpoint (OVER 800px width): Layout adjustments for each individual link on devices larger than tablets  */
 @media (min-width: 801px) {
-    a.nav:link {
-        padding: 1.5rem; } 
-    }
+    a.nav:link {padding: 1.5rem;} 
+}
 
-/* Navigation bar: https://www.w3schools.com/css/css_link.asp */
+/* NAVIGATION BAR: Navigation link
+    • https://www.w3schools.com/css/css_link.asp */
 a.nav:any-link {
     color: #1d528c;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
-/* Navigation bar - navigation link hover and active effects
+
+/* NAVIGATION BAR: Navigation link hover and active effects
     • for transition duration -> https://www.w3schools.com/css/css3_transitions.asp 
     • for text-shadow -> https://www.w3schools.com/css/css_text_shadow.asp */
 a.nav:hover {
@@ -219,52 +399,7 @@ a.nav:active {
 
 
 
-
-
-
-
-/* Homepage: Padding surrounding the map in <Main> */
-.home-main {
-    padding: 10% 15%;
-}
-
-/* Homepage: Background image decoration */
-.home-bkg-left, .home-bkg-right {
-    position: absolute;
-    z-index: -1;
-    opacity: 0.9;
-}
-
-/* Homepage: No background display for tablets/mobiles behind the map */
-@media (max-width: 800px) {
-    .home-bkg-left, .home-bkg-right {display: none;}
-}
-
-/* Homepage: Background adjustments (behind the map) for larger screens */
-@media (min-width: 801px) {
-    .home-bkg-left, .home-bkg-right {height: 80%;}
-    .home-bkg-left {left: 10px;}
-    .home-bkg-right {right: 10px;}
-}
-
-
-/* Homepage: Map "border" (behind the map) for larger screens */
-.map-colour {
-    background-color: #f9cbcb;
-    border-radius: 2rem;
-    padding: 3%;
-}
-
-/* Homepage: Map container to centre the actual map + add padding and dashed border */
-.map {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-
-/* Homepage: Colour animation behind the map
-    • visible ONLY for TABLETS/MOBILES
+/* Homepage - Colour Animation Breakpoint: Colour animation behind the Map, visible ONLY for TABLETS/MOBILES
     • to make animations: https://www.w3schools.com/css/css3_animations.asp */
 @media (max-width: 800px) {
     .map-colour {
@@ -275,20 +410,18 @@ a.nav:active {
 }
 
 @keyframes map-shadow {
-    0%      {box-shadow: 0 0 2rem #bdd7f4;}
-    33.3%    {box-shadow: 0 0 2rem #f9cbcb;}
-    66.6%    {box-shadow: 0 0 2rem #fff3d3;}
-    100%    {box-shadow: 0 0 2rem #bdd7f4;}
+    0%      {box-shadow: 0 0 2rem #b2ceef;}
+    33.3%    {box-shadow: 0 0 2rem #f3b2b2;}
+    66.6%    {box-shadow: 0 0 2rem #ffe59d;}
+    100%    {box-shadow: 0 0 2rem #b2ceef;}
 }
 
 
-/* Homepage: to adjust filter of map tiles: https://stackoverflow.com/questions/53528313/apply-css3-filters-to-the-image-tiles-on-leaflet */
-.leaflet-layer {
-    filter: contrast(1.3);
-}
 
-/* Homepage: Leaflet popup customizations: https://www.youtube.com/watch?v=INNVFfrbalU
-    + https://stackoverflow.com/questions/12606141/how-would-i-customise-the-look-and-feel-of-the-leaflet-popup */
+
+/* Homepage: Leaflet popup customizations
+    • https://www.youtube.com/watch?v=INNVFfrbalU
+    • https://stackoverflow.com/questions/12606141/how-would-i-customise-the-look-and-feel-of-the-leaflet-popup */
 .custom-popup .leaflet-popup-content-wrapper {
     border-radius: 10px;
     box-shadow: 0 4px 10px #1d528c;
@@ -313,131 +446,41 @@ a.nav:active {
 
 
 
-
-
-
-/* to make responsive "internal grid lines" in a grid format: https://geary.co/internal-borders-css-grid/ */
-
-/* defining grid columns: for tablets, phones */
-@media (max-width: 800px) {
-    .locations-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-/* defining grid columns: larger than tablets */
-@media (min-width: 801px) {
-    .locations-grid {
-        grid-template-columns: repeat(3, minmax(200px, 1fr));
-    }
-}
-
-.locations-grid {
-
-    --gap: 3rem;
-    --line-thickness: 2px;
-    --line-color: #f9cbcb;
-    --line-offset: calc(var(--gap) / 2);
-
-    display: grid;
-    gap: var(--gap);
-    justify-content: center;
-    align-items: stretch;
-    overflow: hidden;
-    border-right: var(--line-color);
-    margin: 2% 2% 4% 2%;
-    padding: 1rem 0 3rem 0;
-}
-
-.locations-grid > section {
-    position: relative;
-    padding: 0.5em;
-}
-
-/* Pseudo Elements */
-
-.locations-grid > section::after,
-.locations-grid > section::before {
-    content: "";
-    background-color: var(--line-color);
-    position: absolute;
-} 
-
-/* Row lines */
-.locations-grid > section::after {
-    inline-size: 100vw;
-    block-size: var(--line-thickness);
-    inset-block-start: calc(var(--line-offset) * -1);
-    inset-inline-start: 0;
-}
-
-/* Column lines */
-.locations-grid > section::before {
-    inline-size: var(--line-thickness);
-    block-size: 100vh;
-    inset-block-start: 0;
-    inset-inline-start: calc(var(--line-offset) * -1);
-}  
-
-
-
-
-
-.locations-grid > section img {
-    display: block;
-    margin: auto;
-    width: 50px;
-    padding-bottom: 18px;
-}
-
+/* "AREA Template" page: Links of each location's external sites or Instagram platforms */
 a.location-link:any-link {
     color: #1d528c;
     text-decoration: none;
     background-color: #ccdcee;
 }
 
+/* "AREA Template" page: Hover/active link effects of each location */
 a.location-link:hover, a.location-link:active {
     background-color: #ffd86c;
     transition: 1s;
 }
 
-.locations-grid > section h4 {
-    color: black;
+
+
+
+/* Links within body text */
+a.p-link {
+    text-decoration: none;
+    color: #1d528c;
 }
 
-
-/* to make tables: https://www.w3schools.com/html/html_tables.asp */
-table {
-    font-family: "Lato Regular";
-    color:black;
-    font-size: 0.9rem;
-    line-height: 1.2rem;
-    border-collapse: collapse;
-    text-align: left;
-}
-
-td {
-    padding: 0 10px 0 0;
+a.p-link:hover {
+    background-color: #ccdcee;
 }
 
 
 
 
-footer {
-    font-family: "Lato Regular";
-    font-size: 0.8rem;
-    text-align: left;
-    background-color: #fff3d3;
-    padding: 3%;
-}
 
 
+/* ----- TYPOGRAPHY ----- */
 
-
-/* TYPOGRAPHY */
-
-
-/* source: https://fonts.google.com/specimen/Unkempt?query=unkempt */
+/* Unkempt typeface source: https://fonts.google.com/specimen/Unkempt?query=unkempt 
+    • by Sideshow */
 @font-face {
     font-family: 'Unkempt Bold';
     src: url('fonts/unkempt-bold-webfont.woff') format('woff'),
@@ -446,7 +489,11 @@ footer {
     font-style: normal;
 }
 
-/* source: https://www.fontsquirrel.com/fonts/syne */
+
+
+
+/* Syne typeface source: https://www.fontsquirrel.com/fonts/syne 
+    • by Bonjour Monde, Lucas Descroix, and George Triantafyllakos */
 @font-face {
     font-family: 'Syne Bold';
     src: url('fonts/syne-bold-webfont.woff') format('woff'),
@@ -454,7 +501,6 @@ footer {
     font-weight: bold;
     font-style: normal;
 }
-
 
 @font-face {
     font-family: 'Syne Regular';
@@ -464,7 +510,12 @@ footer {
     font-style: normal;
 }
 
-/* source: https://fonts.google.com/specimen/Lato */
+
+
+
+/* Lato typeface source: https://fonts.google.com/specimen/Lato
+    • by Lukasz Dziedzic */
+
 @font-face {
     font-family: 'Lato Bold';
     src: url('fonts/lato-bold-webfont.woff') format('woff'),
@@ -483,7 +534,10 @@ footer {
 
 
 
-/* defining text 800px or less (phones, tablets) */
+
+
+
+/* Typography Breakpoints (800px width or UNDER): for tablets/mobile */
 @media (max-width: 800px) {
     h1 {
         font-size: 2.8rem;
@@ -501,7 +555,7 @@ footer {
 
 }
 
-/* defining text more than 800px (larger than tablet) */
+/* Typography Breakpoints (OVER 800px width): for screens larger than tablet */
 @media (min-width: 801px) {
     h1 {
         font-size: 5rem; 
@@ -523,6 +577,8 @@ footer {
     }
 
 }
+
+
 
 
 h1 {
@@ -560,12 +616,4 @@ p {
     font-family: "Lato Bold";
 }
 
-a.p-link {
-    text-decoration: none;
-    color: #1d528c;
-}
-
-a.p-link:hover {
-    background-color: #bdd7f4;
-}
 

@@ -4,10 +4,7 @@
 <html lang="en">
 
 
-
-
 <!-- the head represents the condiments, space to set internal CSS rules (specific to the page) -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +27,7 @@
     <style>
 
         /* Leaflet map sizing - defined height required */
-        /* under width 800px: phones, tablets */
+        /* Breakpoint (800px width or UNDER): tablets/mobile */
         @media (max-width: 800px) {
             #map {
             width: 80vw;
@@ -38,7 +35,7 @@
             }
         }
         /* Leaflet map sizing - defined height required */
-        /* beyond width 800px: larger than tablet */
+        /* Breakpoint (OVER 800px width): screens larger than tablet */
         @media (min-width: 801px) {
             #map {
             width: 90vw;
@@ -53,6 +50,7 @@
         }
 
     </style>
+
 </head>
 <!-- end of head -->
 
@@ -60,6 +58,7 @@
 
 <!-- the body is the protein, the VISIBLE part of the website -->
 <body>
+
 <header class="gridlines">
 
     <div class="breadcrumb">
@@ -97,17 +96,23 @@
 
 
 <main class="home-main gridlines">
+
+    <!-- Background "illustrated stickers" - image decoration -->
     <img src="images/stickers-column-left.png" class="home-bkg-left" alt="stickers (left) background">
     <img src="images/stickers-column-right.png" class="home-bkg-right" alt="stickers (right) background">
+    
+    <!-- Leaflet map "outer border/box" behind the map -->
     <div class="map-colour">
-        <!-- leaflet map "container"-->
+
+        <!-- Leaflet map "container" to centre -->
         <div class="map">
         
-        <!-- leaflet map insert-->
+        <!-- Leaflet map insert-->
         <div id="map" class="custom-popup"></div>
 
-
+        <!-- javascript for Leaflet -->
         <script>
+
             var map = L.map('map').setView([43.706, -79.398], 11);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -117,11 +122,10 @@
             }).addTo(map);
 
 
-            // to make custom icons for markers: https://leafletjs.com/examples/custom-icons/ 
+            // for custom icons for markers: https://leafletjs.com/examples/custom-icons/ 
             var redPin = L.icon({
                 iconUrl: 'images/pin-blue-2.png',
                 shadowUrl: 'images/pin-shadow3.png',
-
 
                 iconSize:     [50, 50], // size of the icon
                 shadowSize:   [30, 25], // size of the shadow
@@ -130,9 +134,7 @@
                 popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
             });
 
-
             // North
-
             var marker = L.marker([43.76822179899632, -79.41458034737905], {icon: redPin}).addTo(map)
                 .bindPopup('<img src="images/library-icon.png"> <br> <h5>Toronto Public Library (North York)</h5> <br> 5120 Yonge St');
 
@@ -153,7 +155,6 @@
 
 
             // South
-            
             var marker = L.marker([43.671753362608264, -79.38691573461902], {icon: redPin}).addTo(map)
                 .bindPopup('<img src="images/library-icon.png"> <br> <h5>Toronto Reference Library (Yonge-Bloor)</h5> <br> 789 Yonge St');
 
@@ -232,21 +233,13 @@
             var marker = L.marker([43.66152320994228, -79.35729875832472], {icon: redPin}).addTo(map)
                 .bindPopup('<img src="images/coffee-icon.png"> <br> <h5>Bevy</h5> <br> 738 Dundas St E');
 
-
-
         </script>
         </div>
     </div>
 
-
-<!--    Leaflet Marker Template: 
-
-var marker = L.marker([   ], {icon: redPin}).addTo(map)
-    .bindPopup('<img src="images/   -icon.png"> <br> <h5>_Name_</h5> <br>_Address_');
--->
-
-
 </main>
+
+
 
 <footer>
 
