@@ -191,7 +191,7 @@ a.link-home:hover {
 /* Homepage: "Outer border/box" behind the Map for screens larger than tablets */
 .map-colour {
     background-color: #f9cbcb;
-    border-radius: 2rem;
+    border-radius: 2.25rem;
     padding: 3%;
 }
 
