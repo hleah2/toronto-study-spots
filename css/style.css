@@ -1,14 +1,17 @@
 /* --------------------
 ORGANIZATION NOTE: 
 
-BREAKPOINTS and INTERACTIONS are integrated throughout because scattering into different sections disrupts the flow of how 
-some styles/elements are connected. I also thought it would be easier to read when specific breakpoints/interactions are 
-grouped with the "main" functionality.
+BREAKPOINTS are integrated throughout because scattering into different 
+parts might disrupt the flow of how some styles/elements are connected. 
+I also thought it would be easier to read when specific breakpoints 
+are grouped with the "main"/"parent" functionality.
 
-This CSS file is mostly organized by functionalities, by order of appearance. Starting from the TOP of the page to the BOTTOM. 
-First with the Home page, then to the "Area" pages.
+This CSS file is mostly organized by functionalities, by order of 
+appearance. Starting from the TOP of the page to the BOTTOM. First with 
+the Home page, then to the "Area" pages.
 
-For this website, "Area" only describes the different areas/regions of Toronto (i.e., North, South, Midtown, West, and East).
+For this website, "Area" only describes the different areas/regions of 
+Toronto (i.e., North, South, Midtown, West, and East).
 -------------------- */
 
 * {
@@ -414,6 +417,14 @@ a.nav:active {
     33.3%    {box-shadow: 0 0 2rem #f3b2b2;}
     66.6%    {box-shadow: 0 0 2rem #ffe59d;}
     100%    {box-shadow: 0 0 2rem #b2ceef;}
+}
+
+/* Homepage - Colour Animation Breakpoint: No animation for users with reduced motion preference
+    • https://web.dev/articles/prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .map-colour {
+        animation: none;
+    }
 }
 
 
